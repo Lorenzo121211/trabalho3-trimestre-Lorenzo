@@ -216,9 +216,5 @@ function verHeroi(nome) {
     alert(
         "HERÓI: " + heroi.nome +
         "\nPoder: " + heroi.poder
-    );
-}
+    )}
 </script>
-
-</body>
-</html>

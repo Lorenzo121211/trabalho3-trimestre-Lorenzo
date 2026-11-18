@@ -1,220 +1,275 @@
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universo Marvel</title>
+/* CONFIGURAÇÕES GERAIS */
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #101010;
-            color: white;
-        }
-
-        header {
-            background: #e62429;
-            padding: 25px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 35px;
-            letter-spacing: 3px;
-        }
-
-        nav {
-            background: #202020;
-            padding: 15px;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 15px;
-        }
-
-        .banner {
-            padding: 70px 20px;
-            text-align: center;
-            background: linear-gradient(
-                rgba(0,0,0,.6),
-                rgba(0,0,0,.8)
-            ), url("https://images.unsplash.com/photo-1534796636912-3b95b3ab5986");
-            background-size: cover;
-            background-position: center;
-        }
-
-        .banner h2 {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .banner button {
-            background: #e62429;
-            color: white;
-            border: none;
-            padding: 15px 25px;
-            margin-top: 20px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .personagens {
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .cards {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .card {
-            background: #222;
-            width: 220px;
-            padding: 15px;
-            border-radius: 10px;
-            transition: .3s;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 15px #e62429;
-        }
-
-        .card img {
-            width: 100%;
-            height: 230px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .card h3 {
-            margin: 15px;
-            color: #e62429;
-        }
-
-        .card button {
-            background: #e62429;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        footer {
-            background: #202020;
-            padding: 20px;
-            text-align: center;
-            margin-top: 40px;
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <h1>MARVEL UNIVERSE</h1>
-    <p>Explore o universo dos maiores heróis!</p>
-</header>
-
-<nav>
-    <a href="inicio">Início</a>
-    <a href="personagens">Personagens</a>
-    <a href="sobre">Sobre</a>
-</nav>
-
-<section class="banner" id="inicio">
-    <h2>Bem-vindo ao Universo Marvel!</h2>
-    <p>Conheça heróis, vilões e histórias extraordinárias.</p>
-    <button onclick="explorar()">Explorar Heróis</button>
-</section>
-
-<section class="personagens" id="personagens">
-    <h2>Principais Heróis</h2>
-
-    <div class="cards" id="lista-herois"></div>
-</section>
-
-<section class="personagens" id="sobre">
-    <h2>Sobre o Universo Marvel</h2>
-    <p>
-        Um universo repleto de aventuras, batalhas épicas,
-        personagens incríveis e histórias inesquecíveis!
-    </p>
-</section>
-
-<footer>
-    <p>Site de fãs do Universo Marvel | 2026</p>
-</footer>
-
-<script>
-const herois = [
-    {
-        nome: "Homem de Ferro",
-        poder: "Tecnologia e armadura avançada",
-        imagem: "https://placehold.co/300x350/222222/ffffff?text=Homem+de+Ferro"
-    },
-    {
-        nome: "Homem-Aranha",
-        poder: "Agilidade e sentido aranha",
-        imagem: "https://placehold.co/300x350/222222/ffffff?text=Homem-Aranha"
-    },
-    {
-        nome: "Thor",
-        poder: "Poderes do trovão",
-        imagem: "https://placehold.co/300x350/222222/ffffff?text=Thor"
-    },
-    {
-        nome: "Hulk",
-        poder: "Força sobre-humana",
-        imagem: "https://placehold.co/300x350/222222/ffffff?text=Hulk"
-    }
-];
-
-const lista = document.getElementById("lista-herois");
-
-herois.forEach(heroi => {
-    const card = document.createElement("div");
-
-    card.className = "card";
-
-    card.innerHTML = `
-        <img src="${heroi.imagem}" alt="${heroi.nome}">
-        <h3>${heroi.nome}</h3>
-        <p>${heroi.poder}</p>
-        <br>
-        <button onclick="verHeroi('${heroi.nome}')">
-            Conhecer herói
-        </button>
-    `;
-
-    lista.appendChild(card);
-});
-
-function explorar() {
-    document.getElementById("personagens")
-        .scrollIntoView({ behavior: "smooth" });
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-function verHeroi(nome) {
-    const heroi = herois.find(h => h.nome === nome);
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #101014;
+    color: white;
+    line-height: 1.6;
+}
 
-    alert(
-        "HERÓI: " + heroi.nome +
-        "\nPoder: " + heroi.poder
-    )}
-</script>
+/* CABEÇALHO */
+
+header {
+    background: linear-gradient(135deg, #171717, #310909);
+    text-align: center;
+    padding: 35px 20px;
+    border-bottom: 3px solid #e50914;
+}
+
+header h1 {
+    font-size: 35px;
+    letter-spacing: 3px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #cccccc;
+    margin-bottom: 20px;
+}
+
+/* MENU */
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+nav a {
+    color: white;
+    background: #e50914;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: #ffffff;
+    color: #e50914;
+    transform: translateY(-4px);
+}
+
+/* BANNER PRINCIPAL */
+
+.banner {
+    min-height: 500px;
+    background:
+        linear-gradient(rgba(0,0,0,0.55),
+        rgba(0,0,0,0.85)),
+        url("https://images.unsplash.com/photo-1535223289827-42f1e9919769")
+        center/cover no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.banner-content {
+    max-width: 750px;
+}
+
+.banner h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.banner p {
+    font-size: 19px;
+    margin-bottom: 30px;
+}
+
+/* BOTÕES */
+
+.botao {
+    display: inline-block;
+    background: #e50914;
+    color: white;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 7px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background: white;
+    color: #e50914;
+    transform: scale(1.05);
+}
+
+/* CONTEÚDO */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+.container h2 {
+    color: #ff3030;
+    margin: 35px 0 20px;
+    font-size: 28px;
+}
+
+.container p {
+    color: #dddddd;
+    margin-bottom: 20px;
+    font-size: 17px;
+}
+
+/* IMAGEM DE DESTAQUE */
+
+.imagem-destaque {
+    display: block;
+    width: 100%;
+    max-height: 430px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 25px auto;
+}
+
+/* CARTÕES */
+
+.cards,
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.card,
+.filme,
+.heroi {
+    background: #1c1c24;
+    border-radius: 12px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    transition: 0.3s;
+    border: 1px solid #333;
+}
+
+.card {
+    padding: 25px;
+}
+
+.card:hover,
+.filme:hover,
+.heroi:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.25);
+    border-color: #e50914;
+}
+
+.card h3,
+.filme h3,
+.heroi h3 {
+    color: #ff3030;
+    margin: 15px;
+}
+
+.card p,
+.filme p,
+.heroi p {
+    padding: 0 15px;
+    font-size: 15px;
+}
+
+/* IMAGENS DOS CARTÕES */
+
+.filme img,
+.heroi img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+
+/* SEÇÃO SOBRE */
+
+.sobre-card {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: #1c1c24;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 30px 0;
+}
+
+.sobre-card img {
+    width: 40%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.sobre-card div {
+    flex: 1;
+}
+
+/* RODAPÉ */
+
+footer {
+    background: #080808;
+    text-align: center;
+    padding: 25px;
+    margin-top: 60px;
+    border-top: 2px solid #e50914;
+}
+
+footer p {
+    color: #999999;
+    font-size: 14px;
+}
+
+/* RESPONSIVIDADE PARA CELULARES */
+
+@media (max-width: 700px) {
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    nav {
+        gap: 10px;
+    }
+
+    nav a {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .banner h2 {
+        font-size: 29px;
+    }
+
+    .sobre-card {
+        flex-direction: column;
+    }
+
+    .sobre-card img {
+        width: 100%;
+    }
+
+    .container {
+        width: 92%;
+    }
+
+}
+
